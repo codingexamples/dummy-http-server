@@ -71,8 +71,8 @@ var httpServer = http.createServer(function (req, res) {
     console.log("######## REQUEST ########");
     console.log(`Request-ID: ${requestId}`);
     console.log(`Time: ${getFormattedTimestamp()}`);
-    console.log(`Method: ${req.method}`);
-    console.log(`Http-version: ${req.httpVersion}`);
+    console.log(`HTTP-method: ${req.method}`);
+    console.log(`HTTP-version: ${req.httpVersion}`);
     console.log(`URL: ${req.url}`);
     console.log("Headers:");
     console.log(req.headers);
