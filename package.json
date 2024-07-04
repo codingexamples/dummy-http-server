@@ -1,12 +1,14 @@
 {
   "name": "dummy-http-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "This a **very simple** dummy-http-server. It accepts any http connection with any http-method (GET, POST, PUT, DELETE) and prints detailed information about this request to STDOUT.",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "dummy-http-server": "./index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "somecoder",
+  "license": "MIT"
 }

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var http = require('node:http');
 
 function getFormattedTimestamp() {

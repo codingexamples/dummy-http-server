@@ -4,7 +4,7 @@
 npx dummy-http-server
 ```
 
-This a **very simple** dummy-http-server. It accepts any http connection with any http-method (GET, POST, PUT, DELETE). After handling the request, detailed information about this request is printed to STDOUT:
+This a **very simple** dummy-http-server. It accepts any http connection with any http-method (GET, POST, PUT, DELETE) and prints detailed information about this request to STDOUT:
 * Timestamp
 * HTTP-Method
 * HTTP-Version
