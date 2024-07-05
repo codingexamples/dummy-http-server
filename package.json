@@ -1,6 +1,6 @@
 {
   "name": "dummy-http-server",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "This a **very simple** dummy-http-server. It accepts any http connection with any http-method (GET, POST, PUT, DELETE) and prints detailed information about this request to STDOUT.",
   "main": "index.js",
   "bin": {
@@ -10,5 +10,6 @@
     "start": "node index.js"
   },
   "author": "somecoder",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/codingexamples/dummy-http-server"
 }
