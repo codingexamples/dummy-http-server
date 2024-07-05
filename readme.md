@@ -39,6 +39,13 @@ Default configuration:
 
 ### Advanced config
 
+#### Command line options
+* --content-type: content-type of the response to the client
+* --response: body of the response to the client
+* --response-status: HTTP status of the response to the client
+* --port: port of the listening server
+* --hostname: hostname of the listening server\n
+
 #### Sending a custom respsonse
 
 ```
