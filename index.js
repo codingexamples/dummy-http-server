@@ -6,7 +6,8 @@ function getFormattedTimestamp() {
     const date = new Date();
 
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    // Months are zero-based -> padding
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
 
     const hours = String(date.getHours()).padStart(2, '0');
@@ -63,6 +64,18 @@ cmdArgs.forEach(arg => {
     } else if (key === '--hostname') {
         options.hostname = value;
     }
+    else if (key === '--help') {
+        console.log("Command line options:");
+        console.log("--content-type: content-type of the response to the client");
+        console.log("--response: body of the response to the client");
+        console.log("--response-status: HTTP status of the response to the client");
+        console.log("--port: port of the listening server");
+        console.log("--hostname: hostname of the listening server\n");
+        console.log("#### EXAMPLES ####");
+        console.log('npx dummy-http-server --content-type=application/json --response="{\"myMessage\": \"hello\", \"myStatusCode\": \"1234\"}" --response-status=201');
+        console.log("npx dummy-http-server --port=7000 --hostname=192.168.5.100");
+        process.exit(1);
+    }
 });
 
 console.log('Server options:', options);
@@ -78,9 +91,6 @@ var httpServer = http.createServer(function (req, res) {
     console.log(`URL: ${req.url}`);
     console.log("Headers:");
     console.log(req.headers);
-    // console.log("Trailers:");
-    // console.log(req.trailers);
-
 
     // Collect the body data (if any)
     let body = '';
@@ -94,11 +104,6 @@ var httpServer = http.createServer(function (req, res) {
         console.log(body);
 
         // Respond to the client
-        // res.statusCode = 200;
-        // res.setHeader('Content-Type', 'text/plain');
-        // res.end('Hello, world!\n');
-        //write a response to the client
-        // TODO: answer from command line option
         res.writeHead(options.responseStatus, { 'Content-Type': options.contentType });
         if (options.contentType === "application/json") {
             res.write(JSON.stringify(options.response));
@@ -127,5 +132,4 @@ var httpServer = http.createServer(function (req, res) {
 httpServer.listen(options.port, function (){
     console.log(`Server listening at http://${options.hostname}:${options.port}/\n`);
 });
-
 
